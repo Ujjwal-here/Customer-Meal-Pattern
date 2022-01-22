@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import DatePicker from 'react-date-picker';
+import { useState } from 'react';
+import pattern from "./pattern"
 
 function App() {
+  const [value,newValue]=useState(new Date())
+
+  const onChange=(date)=>{
+     newValue(date)
+  }
+  function convert(str) {
+    var date = new Date(str),
+      mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+      day = ("0" + date.getDate()).slice(-2);
+    return [date.getFullYear(), mnth, day].join("-");
+  }
+  console.log(convert(value))
+  const filtered=pattern.filter(person=>person.item_date === convert(value))
+  console.log(filtered)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <DatePicker onChange={onChange} value={value} format='y-MM-dd'/>
     </div>
   );
 }
