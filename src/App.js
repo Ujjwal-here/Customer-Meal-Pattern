@@ -187,9 +187,9 @@ function App() {
     <div className="App">
       <h1>Customer Scheduling Pattern</h1>
       <div className="date">
-        <p>Select a date</p>
+        <h3>Select a date:</h3>
         <DatePicker
-          
+          className="dates"
           minDate={
             new Date("Tue May 18 2021 00:00:00 GMT+0530 (India Standard Time)")
           }
@@ -230,10 +230,9 @@ function App() {
         />
       </div>
       <div className="bar2">
-        <h2>
-          Click on bar tile(Schedule Date) of above graph to see pattern in
-          below graph
-        </h2>
+        <h3 className="bar2h">
+          Click on bar tile in above graph to see pattern in below graph
+        </h3>
         <Bar
           className="bar"
           data={stat}

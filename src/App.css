@@ -4,9 +4,14 @@
 .date{
     margin: 10px 0px;
     border: 1px solid rgb(211, 209, 209);
-    padding: 10px 10px;
+    padding: 5px 15px;
     border-radius: 10px;
-    background-color: #027AFF;
+    background-color: #EAF4FE;
+    display: flex;
+    align-items: center;
+}
+.dates{
+    margin: 10px 10px;
 }
 .bar1{
     border: 1px solid rgb(211, 209, 209);
@@ -18,4 +23,12 @@
     border: 1px solid rgb(211, 209, 209);
     border-radius: 10px;
     padding: 30px 30px; 
+}
+.bar2h{
+    color: #3A3D55;
+    margin: 10px 0px;
+    border: 1px solid rgb(211, 209, 209);
+    padding: 20px 20px;
+    border-radius: 10px;
+    background-color: #EAF4FE;
 }
