@@ -137,8 +137,6 @@ function App() {
       h["12PM to 3PM"] += 1;
     } else if (suffix === "pm" && hours === 2) {
       h["12PM to 3PM"] += 1;
-    } else if (suffix === "pm" && hours === 3) {
-      h["12PM to 3PM"] += 1;
     } else if (suffix === "pm" && hours >= 3 && hours < 6) {
       h["3PM to 6PM"] += 1;
     } else if (suffix === "am" && hours === 12) {
