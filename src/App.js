@@ -33,7 +33,7 @@ function App() {
     newValue(date);
   };
 
-  //This function converts this date and time(Sat May 01 2021 00:00:00 GMT+0530 (India Standard Time)) into simple date and time 
+  //This function converts this date and time(Sat May 01 2021 00:00:00 GMT+0530 (India Standard Time)) into simple date and time
   function convert(str) {
     let date = new Date(str),
       mnth = ("0" + (date.getMonth() + 1)).slice(-2),
@@ -113,7 +113,7 @@ function App() {
     (ele) => ele.schedule_time.slice(0, 10) === Object.keys(d)[val]
   );
   console.log(filter);
-  
+
   //Filtering data based on click event
   filter.forEach((elem) => {
     const time = parseInt(elem.schedule_time.slice(11, 14));
@@ -188,11 +188,15 @@ function App() {
         className="bar"
         data={states}
         options={{
-          onHover:function(e){
-            e.native.target.style.cursor = 'pointer';
+          onHover: function (e) {
+            e.native.target.style.cursor = "pointer";
           },
           onClick: function (c, i) {
             newVal(i[0].index);
+          },
+          scales: {
+            x: { title: { display: true, text: "Scheluding Time" } },
+            y: { title: { display: true, text: "Count" } },
           },
           plugins: {
             title: {
@@ -210,6 +214,10 @@ function App() {
         className="bar"
         data={stat}
         options={{
+          scales: {
+            x: { title: { display: true, text: "Time" } },
+            y: { title: { display: true, text: "Count" } },
+          },
           plugins: {
             title: {
               display: true,
