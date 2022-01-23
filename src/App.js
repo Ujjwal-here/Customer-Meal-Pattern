@@ -199,7 +199,7 @@ function App() {
     <div className="App">
       <h1>Customer Scheduling Pattern</h1>
       <div className="date">
-        <h3>Select a date:</h3>
+        <h3 style={{width:"150px"}}>Select a date:</h3>
         <DatePicker
         className="datess"
           closeOnScroll={true}
