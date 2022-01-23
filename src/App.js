@@ -1,5 +1,7 @@
 import "./App.css";
-import DatePicker from "react-date-picker";
+//import DatePicker from "react-date-picker";
+import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from "react-datepicker";
 import { useState } from "react";
 import pattern from "./pattern";
 import {
@@ -62,6 +64,8 @@ function App() {
   }
   const d = mapConversion(filtered);
 
+  console.log(d);
+
   //Labels and values for first graph
   const labels = [];
   const vals = [];
@@ -101,7 +105,7 @@ function App() {
   };
   const h = {
     "9AM to 12AM": 0,
-    "12AM to 3PM": 0,
+    "12PM to 3PM": 0,
     "3PM to 6PM": 0,
     "6PM to 9PM": 0,
     "9PM to 12AM": 0,
@@ -127,10 +131,18 @@ function App() {
 
     if (suffix === "pm" && hours >= 6 && hours < 9) {
       h["6PM to 9PM"] += 1;
-    } else if (suffix === "pm" && hours >= 12 && hours < 15) {
-      h["12AM to 3PM"] += 1;
+    } else if (suffix === "pm" && hours === 12) {
+      h["12PM to 3PM"] += 1;
+    } else if (suffix === "pm" && hours === 1) {
+      h["12PM to 3PM"] += 1;
+    } else if (suffix === "pm" && hours === 2) {
+      h["12PM to 3PM"] += 1;
+    } else if (suffix === "pm" && hours === 3) {
+      h["12PM to 3PM"] += 1;
     } else if (suffix === "pm" && hours >= 3 && hours < 6) {
       h["3PM to 6PM"] += 1;
+    } else if (suffix === "am" && hours === 12) {
+      h["12AM to 3AM"] += 1;
     } else if (suffix === "am" && hours >= 1 && hours < 3) {
       h["12AM to 3AM"] += 1;
     } else if (suffix === "am" && hours >= 3 && hours < 6) {
@@ -189,16 +201,18 @@ function App() {
       <div className="date">
         <h3>Select a date:</h3>
         <DatePicker
-          className="dates"
+        className="datess"
+          closeOnScroll={true}
+          selected={value}
+          onChange={onChange}
+          placeholderText="I have been cleared"
+          dateFormat={"dd-MM-yyyy"}
           minDate={
             new Date("Tue May 18 2021 00:00:00 GMT+0530 (India Standard Time)")
           }
           maxDate={
             new Date("Sun Jan 16 2022 00:00:00 GMT+0530 (India Standard Time)")
           }
-          onChange={onChange}
-          value={value}
-          format="y-MM-dd"
         />
       </div>
       <div className="bar1">

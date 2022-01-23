@@ -10,8 +10,11 @@
     display: flex;
     align-items: center;
 }
-.dates{
-    margin: 10px 10px;
+
+.datess{
+    padding: 10px 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(211, 209, 209);
 }
 .bar1{
     border: 1px solid rgb(211, 209, 209);
