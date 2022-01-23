@@ -24,9 +24,11 @@ ChartJS.register(
 
 function App() {
   const [value, newValue] = useState(
-    new Date("Sat May 01 2021 00:00:00 GMT+0530 (India Standard Time)")
+    new Date("Sun May 30 2021 00:00:00 GMT+0530 (India Standard Time)")
   );
   const [val, newVal] = useState(0);
+
+  console.log(value);
 
   //On Change handler for datepicker
   const onChange = (date) => {
@@ -129,7 +131,7 @@ function App() {
       h["12AM to 3PM"] += 1;
     } else if (suffix === "pm" && hours >= 3 && hours < 6) {
       h["3PM to 6PM"] += 1;
-    } else if (suffix === "am" && hours >= 12 && hours < 15) {
+    } else if (suffix === "am" && hours >= 1 && hours < 3) {
       h["12AM to 3AM"] += 1;
     } else if (suffix === "am" && hours >= 3 && hours < 6) {
       h["3AM to 6AM"] += 1;
@@ -157,7 +159,7 @@ function App() {
     labels: lab,
     datasets: [
       {
-        label: "Schedule Count on Particular Date",
+        label: "Schedule Count on Time range",
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(255, 159, 64, 0.2)",
@@ -183,53 +185,76 @@ function App() {
   };
   return (
     <div className="App">
-      <DatePicker onChange={onChange} value={value} format="y-MM-dd" />
-      <Bar
-        className="bar"
-        data={states}
-        options={{
-          onHover: function (e) {
-            e.native.target.style.cursor = "pointer";
-          },
-          onClick: function (c, i) {
-            newVal(i[0].index);
-          },
-          scales: {
-            x: { title: { display: true, text: "Scheluding Time" } },
-            y: { title: { display: true, text: "Count" } },
-          },
-          plugins: {
-            title: {
-              display: true,
-              text: "Customer Schedulling Pattern",
+      <h1>Customer Scheduling Pattern</h1>
+      <div className="date">
+        <p>Select a date</p>
+        <DatePicker
+          
+          minDate={
+            new Date("Tue May 18 2021 00:00:00 GMT+0530 (India Standard Time)")
+          }
+          maxDate={
+            new Date("Sun Jan 16 2022 00:00:00 GMT+0530 (India Standard Time)")
+          }
+          onChange={onChange}
+          value={value}
+          format="y-MM-dd"
+        />
+      </div>
+      <div className="bar1">
+        <Bar
+          className="bar"
+          data={states}
+          options={{
+            onHover: function (e) {
+              e.native.target.style.cursor = "pointer";
             },
-            legend: {
-              display: true,
-              position: "bottom",
+            onClick: function (c, i) {
+              newVal(i[0].index);
             },
-          },
-        }}
-      />
-      <Bar
-        className="bar"
-        data={stat}
-        options={{
-          scales: {
-            x: { title: { display: true, text: "Time" } },
-            y: { title: { display: true, text: "Count" } },
-          },
-          plugins: {
-            title: {
-              display: true,
-              text: "Customer Schedulling Pattern",
+            scales: {
+              x: { title: { display: true, text: "Scheluding Date" } },
+              y: { title: { display: true, text: "Count" } },
             },
-            legend: {
-              display: true,
-              position: "bottom",
+            plugins: {
+              title: {
+                display: true,
+                text: "Customer Schedulling Pattern",
+              },
+              legend: {
+                display: true,
+                position: "bottom",
+              },
             },
-          },
-        }}
-      />
+          }}
+        />
+      </div>
+      <div className="bar2">
+        <h2>
+          Click on bar tile(Schedule Date) of above graph to see pattern in
+          below graph
+        </h2>
+        <Bar
+          className="bar"
+          data={stat}
+          options={{
+            scales: {
+              x: { title: { display: true, text: "Time" } },
+              y: { title: { display: true, text: "Count" } },
+            },
+            plugins: {
+              title: {
+                display: true,
+                text: "Customer Schedulling Pattern",
+              },
+              legend: {
+                display: true,
+                position: "bottom",
+              },
+            },
+          }}
+        />
+      </div>
     </div>
   );
 }

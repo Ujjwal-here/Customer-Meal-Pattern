@@ -1,5 +1,21 @@
 .App{
-    margin: 50px 50px;
-    height: 800px;
-    width: 600px;
+    margin: 40px 150px;
+}
+.date{
+    margin: 10px 0px;
+    border: 1px solid rgb(211, 209, 209);
+    padding: 10px 10px;
+    border-radius: 10px;
+    background-color: #027AFF;
+}
+.bar1{
+    border: 1px solid rgb(211, 209, 209);
+    border-radius: 10px;
+    padding: 30px 30px; 
+}
+.bar2{
+    margin: 10px 0px;
+    border: 1px solid rgb(211, 209, 209);
+    border-radius: 10px;
+    padding: 30px 30px; 
 }
